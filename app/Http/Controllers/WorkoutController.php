@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Workout;
 use Illuminate\Http\Request;
-use App\Models\Workouts;
+use App\Models\Workout;
 use Illuminate\Support\Facades\DB;
 
 class WorkoutController extends Controller
@@ -29,7 +28,7 @@ class WorkoutController extends Controller
     public function create()
     {
         //
-        return view('wo.create');
+        return view('workouts.create');
     }
 
     /**
@@ -41,6 +40,10 @@ class WorkoutController extends Controller
     public function store(Request $request)
     {
         //
+        $workout = new Workout;
+        $workout->work_type = $request->input('work_type');
+        $workout->save();
+        return redirect('wo');
     }
 
     /**
