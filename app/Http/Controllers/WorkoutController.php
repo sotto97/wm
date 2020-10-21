@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Workout;
+use App\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+
 
 class WorkoutController extends Controller
 {
@@ -16,8 +19,8 @@ class WorkoutController extends Controller
     public function index(Request $request)
     {
         //
-        $workouts = DB::table('workouts')->get();
-        return view('workouts.index');
+        $workouts = DB::select("SELECT * FROM workouts");
+        return view(('workouts.index'), compact('workouts'));
     }
 
     /**
@@ -41,7 +44,11 @@ class WorkoutController extends Controller
     {
         //
         $workout = new Workout;
+
+        $workout->user_id = auth()->id();
         $workout->work_type = $request->input('work_type');
+        $workout->date = $request->input('date');
+
         $workout->save();
         return redirect('wo');
     }

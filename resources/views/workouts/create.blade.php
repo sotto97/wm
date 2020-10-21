@@ -1,4 +1,4 @@
-@extends('layouts.header')
+@extends('layouts.app')
 
 @section('content')
 <div class="w-full h-screen" style="background-color: #202039;">
@@ -6,7 +6,8 @@
         <form method="post" action="{{ route('wo.store') }}">
             @csrf
             <input type="text" name="work_type">
-            <button type="submit">更新する</button>
+            <input type="date" name="date">
+            <input type="submit" value="登録する"></input>
         </form>
     </div>
 </div>

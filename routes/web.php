@@ -30,7 +30,7 @@ Route::get('/root', function () {
 Auth::routes();
 
 // workout 関連のルーティング
-Route::group(['prefix' => 'wo'], function () {
+Route::group(['prefix' => 'wo', 'middleware' => 'auth'], function () {
     Route::get('', 'WorkoutController@index')->name('wo.index');
     Route::get('create', 'WorkoutController@create')->name('wo.create');
     Route::post('store', 'WorkoutController@store')->name('wo.store');
