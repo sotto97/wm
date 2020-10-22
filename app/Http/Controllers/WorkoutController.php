@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Workout;
 use App\User;
+use Doctrine\Inflector\Rules\Word;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -46,8 +47,8 @@ class WorkoutController extends Controller
         $workout = new Workout;
 
         $workout->user_id = auth()->id();
-        $workout->work_type = $request->input('work_type');
-        $workout->date = $request->input('date');
+        $workout->work_type = $request->work_type;
+        $workout->date = $request->date;
 
         $workout->save();
         return redirect('wo');
@@ -59,9 +60,12 @@ class WorkoutController extends Controller
      * @param  \App\Models\Workout  $workout
      * @return \Illuminate\Http\Response
      */
-    public function show(Workout $workout)
+    // public function show(Workout $workout, $id)
+    public function show(Request $request, $id)
     {
         //
+        $workout = Workout::find($id);
+        return view('workouts.show', compact('workout'));
     }
 
     /**
@@ -70,9 +74,11 @@ class WorkoutController extends Controller
      * @param  \App\Models\Workout  $workout
      * @return \Illuminate\Http\Response
      */
-    public function edit(Workout $workout)
+    public function edit(Request $request, Workout $workout)
     {
         //
+        $workout = Workout::find($request->id);
+        return view('workouts.edit', compact('workout'));
     }
 
     /**
@@ -82,9 +88,18 @@ class WorkoutController extends Controller
      * @param  \App\Models\Workout  $workout
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Workout $workout)
+    public function update(Request $request, Workout $workout, $id)
     {
         //
+        $workout = Workout::find($id);
+
+        $workout->user_id = auth()->id();
+        $workout->work_type = $request->work_type;
+        $workout->date = $request->date;
+
+        $workout->save();
+
+        return redirect('wo');
     }
 
     /**
@@ -93,8 +108,11 @@ class WorkoutController extends Controller
      * @param  \App\Models\Workout  $workout
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Workout $workout)
+    public function destroy(Workout $workout, $id)
     {
         //
+        $workout = Workout::find($id);
+        $workout->delete();
+        return redirect('wo');
     }
 }

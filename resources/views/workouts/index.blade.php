@@ -35,7 +35,11 @@
         @foreach ($workouts as $wo)
         <tr>
             <td>{{ $wo->work_type }}</td>
-            <td>{{ $wo->date }}</td>
+            <td>
+                <a href="{{ route('wo.show', ['id' => $wo->id]) }}" method="get">
+                    {{ $wo->date }}
+                </a>
+            </td>
         </tr>
         @endforeach
     </table>
