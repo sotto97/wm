@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="w-full h-screen" style="background-color: #202039;">
+<div class="w-full h-screen bg-black">
     <section class="decide_color">
         <div class="p-4">
             <span class="flex mb-4">
@@ -15,7 +15,7 @@
             </span>
 
             <span class="flex mb-4">
-                <p class="w-1/3 h-8 p-1 bg-teal-500 text-white text-center bg-teal-400">this is test</p>
+                <p class="w-1/3 h-8 p-1 bg-teal-500 text-white text-center bg-teal-600">this is test</p>
                 <p class="text-white mx-2 mt-1">this is a context</p>
             </span>
         </div>
