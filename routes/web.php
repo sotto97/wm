@@ -14,16 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
+// Route::get('/root', function () {
+//     return view('root');
 // });
+
 
 Route::get('/', function () {
     return view('top');
-});
-
-Route::get('/root', function () {
-    return view('root');
 });
 
 // user 認証の記述

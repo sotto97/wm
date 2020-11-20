@@ -11,41 +11,35 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
     <!-- Styles -->
-    <style>
-        html,
-        body {
-            background-color: #000;
-            color: #636b6f;
-            font-family: 'Nunito', sans-serif;
-            font-weight: 200;
-            height: 100vh;
-            margin: 0;
-        }
-    </style>
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body>
-    <!-- @if (Route::has('login'))
-        <div class="top-right links">
-            @auth
-            <a href="{{ url('/home') }}">Home</a>
-            @else
-            <a href="{{ route('login') }}">Login</a>
-
-            @if (Route::has('register'))
-            <a href="{{ route('register') }}">Register</a>
-            @endif
-            @endauth
-        </div>
-        @endif -->
-    <div class="flex w-full h-auto">
-        <div class="w-1/2">
-            <img src="{{ asset('img/healthy.svg') }}" class="w-4">
-        </div>
-        <div class="w-1/2">
-
+<body class="bg-current">
+    <div class="flex h-screen">
+        <div class="m-auto w-full">
+            <div class="flex">
+                <div class="w-1/2 justify-center">
+                    <img class="w-3/5 mx-auto" src="{{ asset('img/healthy.svg') }}">
+                </div>
+                <div class="w-1/2 inline-block m-auto text-center">
+                    <div>
+                        <p class="text-white text-xl">Workout Management</p>
+                    </div>
+                    <div>
+                        <a href="{{ route('login') }}">
+                            <button class="w-2/5 mt-3 p-2 text-lg rounded-full bg-indigo-600 text-white">ログイン</button>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="{{ route('register') }}">
+                            <button class="w-2/5 mt-3 p-2 text-lg rounded-full bg-teal-600 text-white">新規登録</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
 </body>
 
 </html>
