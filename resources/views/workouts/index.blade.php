@@ -2,46 +2,43 @@
 
 @section('content')
 <div class="bg-current">
-    <section class="decide_color">
-        <div class="p-4">
-            <span class="flex mb-4">
-                <p class="w-1/3 h-8 p-1 text-white text-center bg-green-500">This is a text</p>
-                <p class="text-white mx-2 mt-1">this is a context</p>
-            </span>
-
-            <span class="flex mb-4">
-                <p class="w-1/3 h-8 p-1 bg-teal-500 text-white text-center" style="background-color: #55CE70;">this is test</p>
-                <p class="text-white mx-2 mt-1">this is a context</p>
-            </span>
-
-            <span class="flex mb-4">
-                <p class="w-1/3 h-8 p-1 bg-teal-500 text-white text-center bg-teal-600">this is test</p>
-                <p class="text-white mx-2 mt-1">this is a context</p>
-            </span>
+    <div class="container">
+        <div class="mt-2">
+            <a href="{{ route('wo.create') }}">
+                <p class="w-1/3 h-8 p-1 mx-auto text-white text-center bg-green-500 hover:no-underline">
+                    Add Today's workout
+                </p>
+            </a>
         </div>
-    </section>
 
-    <a class="" href="{{ route('wo.create') }}">
-        <p class="w-1/3 h-8 p-1 text-white text-center bg-green-500">
-            Add Today's workout
-        </p>
-    </a>
-
-    <table class="workouts_all text-white">
-        <tr>
-            <th>部位</th>
-            <th>日程</th>
-        </tr>
-        @foreach ($workouts as $wo)
-        <tr>
-            <td>{{ $wo->work_type }}</td>
-            <td>
-                <a href="{{ route('wo.show', ['id' => $wo->id]) }}" method="get">
-                    {{ $wo->date }}
-                </a>
-            </td>
-        </tr>
-        @endforeach
-    </table>
+        <table class="workouts_all text-white">
+            <tr>
+                <th>部位</th>
+                <th>日程</th>
+            </tr>
+            @foreach ($workouts as $wo)
+            <tr>
+                <td>{{ $wo->work_type }}</td>
+                <td>
+                    <a href="{{ route('wo.show', ['id' => $wo->id]) }}" method="get">
+                        {{ $wo->date }}
+                    </a>
+                </td>
+            </tr>
+            @endforeach
+        </table>
+    </div>
 </div>
+
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+
+        },
+        methods: {
+
+        }
+    });
+</script>
 @endsection

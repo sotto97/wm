@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="w-full h-screen bg-black">
+<div class="w-full h-screen">
     <a class="" href="{{ route('wo.create') }}">
         <p class="w-1/3 h-8 p-1 text-white text-center bg-green-500">
             Add Today's workout

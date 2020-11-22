@@ -51,7 +51,6 @@ class WorkoutController extends Controller
         $workout->date = $request->date;
 
         $workout->save();
-        return redirect('wo');
     }
 
     /**

@@ -23,6 +23,10 @@ Route::get('/', function () {
     return view('top');
 });
 
+Route::get('/a', function () {
+    return view('a');
+});
+
 // user 認証の記述
 Auth::routes();
 

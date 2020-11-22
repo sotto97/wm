@@ -1,21 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-body">
-                    @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        <p>※既にログインしています</p>
-                        <button class="w-full h-auto bg-indigo-500 text-white">
-                            トップページへ戻る
-                        </button>
-                    </div>
-                    @endif
-                </div>
-            </div>
+<div class="flex h-screen">
+    <div class="m-auto w-full">
+        <div class="w-1/2 m-auto text-center text-white" role="alert">
+            <p class="mb-2">※既にログインしています</p>
+            <a href="{{ route('wo.index') }}">
+                <button class="w-1/3 h-auto p-3 bg-indigo-500 rounded-lg hover:text-white hover:no-underline">
+                    トップページへ戻る
+                </button>
+            </a>
         </div>
     </div>
 </div>
