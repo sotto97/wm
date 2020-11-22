@@ -20,7 +20,7 @@ class WorkoutController extends Controller
     public function index(Request $request)
     {
         //
-        $workouts = DB::select("SELECT * FROM workouts");
+        $workouts = DB::select("SELECT * FROM workouts ORDER BY date desc");
         return view(('workouts.index'), compact('workouts'));
     }
 
@@ -97,8 +97,6 @@ class WorkoutController extends Controller
         $workout->date = $request->date;
 
         $workout->save();
-
-        return redirect('wo');
     }
 
     /**
