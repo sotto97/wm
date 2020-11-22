@@ -41,6 +41,16 @@ Route::group(['prefix' => 'wo', 'middleware' => 'auth'], function () {
     Route::post('destroy/{id}', 'WorkoutController@destroy')->name('wo.destroy');
 });
 
+Route::group(['prefix' => 'condition', 'condition' => 'auth'], function () {
+    Route::get('', 'ConditionController@index')->name('condition.index');
+    Route::get('create', 'ConditionController@create')->name('condition.create');
+    Route::post('store', 'ConditionController@store')->name('condition.store');
+    Route::get('{id}', 'ConditionController@show')->name('condition.show');
+    Route::get('edit/{id}', 'ConditionController@edit')->name('condition.edit');
+    Route::post('update/{id}', 'ConditionController@update')->name('condition.update');
+    Route::post('destroy/{id}', 'ConditionController@destroy')->name('condition.destroy');
+});
+
 // Route::group(['prefix' => 'wo', 'middleware' => 'auth'], function () {
 
 Route::get('/home', 'HomeController@index')->name('home');
