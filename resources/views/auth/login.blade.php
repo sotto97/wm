@@ -1,66 +1,81 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="flex h-screen">
     <div class="m-auto w-full">
-        <div class="card">
+        <div class="card w-1/2 m-auto">
             <div class="card-body">
-                <form method="POST" action="{{ route('login') }}">
+                <!-- head text -->
+                <div>
+                    <img class="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="Workflow">
+                    <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+                        アカウントにサインイン
+                    </h2>
+                </div>
+                <!-- login form -->
+                <form class="mt-3" method="POST" action="{{ route('login') }}">
                     @csrf
-                    <div class="form-group row">
-                        <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                        <div class="col-md-6">
-                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                            @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
+                    <input type="hidden" name="remember" value="true">
+                    <!-- email field -->
+                    <div>
+                        <input id="email" type="email" name="email" class="form-control appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="メールアドレス" required>
+                        @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
 
-                    <div class="form-group row">
-                        <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                        <div class="col-md-6">
-                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                            @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
+                    <!-- password field -->
+                    <div>
+                        <input id="password" type="password" class="form-control appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" name="password" placeholder="パスワード" required>
+                        @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
 
-                    <div class="form-group row">
-                        <div class="col-md-6 offset-md-4">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                    <div class="flex mt-3 items-center justify-between">
 
-                                <label class="form-check-label" for="remember">
-                                    {{ __('Remember Me') }}
-                                </label>
-                            </div>
+                        <!-- remember me -->
+                        <div class="flex items-center">
+                            <input id="remember" type="checkbox" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                            <p for="remember_me" class="ml-2 block text-sm text-gray-900">
+                                ログイン情報を記憶させる
+                            </p>
                         </div>
-                    </div>
 
-                    <div class="form-group row mb-0">
-                        <div class="col-md-8 offset-md-4">
-                            <button type="submit" class="btn bg-indigo-600 text-white">ログイン</button>
-
+                        <!-- if forget pass -->
+                        <div class="text-sm">
                             @if (Route::has('password.request'))
-                            <a class="btn text-indigo-600" href="{{ route('password.request') }}">
-                                {{ __('Forgot Your Password?') }}
+                            <a href="{{ route('password.request') }}" class="font-medium text-indigo-600 hover:text-indigo-500">
+                                パスワードをお忘れですか？
                             </a>
                             @endif
                         </div>
+                    </div>
+
+                    <!-- submit -->
+                    <div class="mt-3">
+                        <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+                                <i class="fas fa-lock text-indigo-300"></i> </span>
+                            サインイン
+                        </button>
+                    </div>
+
+                    <!-- if don't have an account -->
+                    <div class="text-sm text-center mt-3">
+                        <a href="{{ route('register') }}" class="font-medium text-indigo-600 hover:text-indigo-500">
+                            アカウントを作成していない場合はこちら
+                        </a>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
 @endsection

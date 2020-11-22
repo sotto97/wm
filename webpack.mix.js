@@ -14,6 +14,7 @@ const tailwindcss = require("tailwindcss"); // 追加
 
 mix.js("resources/js/app.js", "public/js")
     .sass("resources/sass/app.scss", "public/css")
+    .setResourceRoot('../')
     .options({
         processCssUrls: false, // 追加
         postCss: [tailwindcss("./tailwind.config.js")] // 追加

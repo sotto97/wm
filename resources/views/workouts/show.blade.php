@@ -29,4 +29,4 @@
         <button class="w-1/3 h-8 p-1 text-white text-center bg-indigo-600" type=" submit">削除する</button>
     </form>
 </div>
-@endsection　
+@endsection

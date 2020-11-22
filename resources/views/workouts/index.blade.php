@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="w-full h-screen bg-black">
+<div class="bg-current">
     <section class="decide_color">
         <div class="p-4">
             <span class="flex mb-4">
@@ -44,4 +44,4 @@
         @endforeach
     </table>
 </div>
-@endsection　
+@endsection

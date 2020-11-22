@@ -1,0 +1,21 @@
+/* back button */
+.fa-chevron-left {
+    position: fixed;
+    bottom: 5%;
+    left: 5%;
+    width: 90px;
+    height: 90px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 3rem;
+    background: #4c51bf;
+    border-radius: 50%;
+    transition: 0.4s cubic-bezier(0.2, 0.6, 0.3, 1.1);
+    box-shadow: 0 0 20px gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fa-chevron-left:hover {
+    background: #464e7c;
+}
