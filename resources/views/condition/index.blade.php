@@ -18,6 +18,7 @@
                     <th scope="col">体重</th>
                     <th scope="col">BMI</th>
                     <th scope="col">体脂肪率</th>
+                    <th scope="col">内臓脂肪レベル</th>
                     <th scope="col">筋肉量</th>
                     <th scope="col">基礎代謝</th>
                 </tr>
