@@ -14,27 +14,27 @@
         <table class="table table-hover table-dark text-white">
             <thead>
                 <tr>
-                    <th scope="col">測定日</th>
-                    <th scope="col">体重</th>
-                    <th scope="col">BMI</th>
-                    <th scope="col">体脂肪率</th>
-                    <th scope="col">筋肉量</th>
-                    <th scope="col">基礎代謝</th>
-                    <th scope="col"></th>
+                    <th scope="col" class="w-2/12">測定日</th>
+                    <th scope="col" class="w-1/12">体重(kg)</th>
+                    <th scope="col" class="w-1/12">BMI</th>
+                    <th scope="col" class="w-2/12">体脂肪率(%)</th>
+                    <th scope="col" class="w-2/12">筋肉量(kg)</th>
+                    <th scope="col" class="w-2/12">基礎代謝(kcal/日)</th>
+                    <th scope="col" class="w-2/12"></th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($conditions as $c)
                 <tr>
-                    <td scope="row">{{ $c->check_date }}</td>
-                    <td>{{ $c->weight }}</td>
-                    <td>{{ $c->bmi }}</td>
-                    <td>{{ $c->fat }}</td>
-                    <td>{{ $c->muscle }}</td>
-                    <td>{{ $c->metabolism }}</td>
-                    <td>
+                    <td scope="row" class="w-2/12">{{ $c->check_date }}</td>
+                    <td class="w-1/12">{{ $c->weight }}</td>
+                    <td class="w-1/12">{{ $c->bmi }}</td>
+                    <td class="w-2/12">{{ $c->fat }}</td>
+                    <td class="w-2/12">{{ $c->muscle }}</td>
+                    <td class="w-2/12">{{ $c->metabolism }}</td>
+                    <td class="w-2/12">
                         <a href="{{ route('condition.edit', ['id' => $c->id]) }}" class="hover:no-underline">
-                            <p class="transition duration-500 w-2/3 mx-auto rounded-full p-1 text-white text-center bg-green-500 hover:bg-green-600">EDIT</p>
+                            <p class="transition duration-500 w-full mx-auto rounded-full p-1 text-white text-center bg-green-500 hover:bg-green-600">Edit</p>
                         </a>
                     </td>
                 </tr>
