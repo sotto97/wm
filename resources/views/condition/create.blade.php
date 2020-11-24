@@ -46,7 +46,7 @@
                     </div>
                 </div>
 
-                <input type="submit" value="登録する"></input>
+                <input class="transition duration-500 rounded-full w-full py-2 px-4 mx-auto text-white text-center bg-green-500 hover:bg-green-700" type="submit" value="登録する"></input>
             </form>
         </div>
     </div>

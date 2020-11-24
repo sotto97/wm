@@ -17,7 +17,7 @@ class ConditionController extends Controller
      */
     public function index()
     {
-        $conditions = DB::select("SELECT * FROM conditions ORDER BY check_date desc");
+        $conditions = DB::select("SELECT * FROM conditions ORDER BY check_date asc");
         return view('condition.index', compact('conditions'));
     }
 
@@ -93,6 +93,7 @@ class ConditionController extends Controller
         $condition = Condition::find($id);
 
         $condition->user_id = $request->input('user_id');
+        $condition->check_date = $request->input('check_date');
         $condition->weight = $request->input('weight');
         $condition->bmi = $request->input('bmi');
         $condition->fat = $request->input('fat');
