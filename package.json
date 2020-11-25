@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.15.1",
-        "tailwindcss": "^1.8.10"
+        "tailwindcss": "^1.8.10",
+        "vue-select": "^3.10.8"
     }
 }

@@ -7,6 +7,7 @@
             @csrf
             <input v-model="work_type" type="text" name="work_type">
             <input v-model="date" type="date" name="date">
+            <v-select :options="options" v-model="name" class="bg-white"></v-select>
             <input type="submit" value="登録する"></input>
         </form>
     </div>
@@ -18,6 +19,13 @@
         data: {
             work_type: '',
             date: '<?php echo date('Y-m-d') ?>',
+            name: '',
+            options: [
+                '太郎',
+                '次郎',
+                '三郎',
+                '花子'
+            ]
         },
         methods: {
             addNewMenu() {
