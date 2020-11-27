@@ -51,6 +51,4 @@ Route::group(['prefix' => 'condition', 'condition' => 'auth'], function () {
     Route::post('destroy/{id}', 'ConditionController@destroy')->name('condition.destroy');
 });
 
-// Route::group(['prefix' => 'wo', 'middleware' => 'auth'], function () {
-
 Route::get('/home', 'HomeController@index')->name('home');

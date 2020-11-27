@@ -75,7 +75,7 @@
     </nav>
     --}}
     <div id="app">
-        <nav class="w-full navbar-expand-md h-auto bg-black text-white">
+        <nav class="w-full fixed top-0 navbar-expand-md h-auto bg-black text-white">
             <div class="flex justify-between ">
                 <div class="w-1/3 h-12 text-left">
                     <a href="javascript:history.back()">
@@ -122,6 +122,9 @@
         <main class="">
             @yield('content')
         </main>
+
+        <!-- 画面下部に配置 -->
+        @include('layouts.footer')
     </div>
 </body>
 
