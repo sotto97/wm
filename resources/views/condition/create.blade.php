@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div id="addCondition" class="w-full h-full p-12">
+<div id="addCondition">
     <div class="container">
         <div class="w-1/3 mt-4 mx-auto">
             <form @submit.prevent="addNewCondition">

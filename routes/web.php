@@ -30,18 +30,20 @@ Route::get('/a', function () {
 // user 認証の記述
 Auth::routes();
 
+Route::get('/home', 'HomeController@index')->name('home');
+
 // workout 関連のルーティング
 Route::group(['prefix' => 'wo', 'middleware' => 'auth'], function () {
     Route::get('', 'WorkoutController@index')->name('wo.index');
     Route::get('create', 'WorkoutController@create')->name('wo.create');
+    Route::post('store', 'WorkoutController@store')->name('wo.store');
     Route::get('{id}', 'WorkoutController@show')->name('wo.show');
     Route::get('edit/{id}', 'WorkoutController@edit')->name('wo.edit');
-    Route::post('store', 'WorkoutController@store')->name('wo.store');
     Route::post('update/{id}', 'WorkoutController@update')->name('wo.update');
     Route::post('destroy/{id}', 'WorkoutController@destroy')->name('wo.destroy');
 });
 
-Route::group(['prefix' => 'condition', 'condition' => 'auth'], function () {
+Route::group(['prefix' => 'condition', 'middleware' => 'auth'], function () {
     Route::get('', 'ConditionController@index')->name('condition.index');
     Route::get('create', 'ConditionController@create')->name('condition.create');
     Route::post('store', 'ConditionController@store')->name('condition.store');
@@ -50,5 +52,3 @@ Route::group(['prefix' => 'condition', 'condition' => 'auth'], function () {
     Route::post('update/{id}', 'ConditionController@update')->name('condition.update');
     Route::post('destroy/{id}', 'ConditionController@destroy')->name('condition.destroy');
 });
-
-Route::get('/home', 'HomeController@index')->name('home');

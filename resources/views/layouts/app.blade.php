@@ -16,7 +16,7 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
@@ -119,13 +119,13 @@
             </div>
         </nav>
 
-        <main class="">
+        <main class="pt-12 pb-16">
             @yield('content')
         </main>
 
-        <!-- 画面下部に配置 -->
-        @include('layouts.footer')
     </div>
+    <!-- 画面下部に配置 -->
+    @include('layouts.footer')
 </body>
 
 </html>
