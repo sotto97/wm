@@ -43,6 +43,12 @@ Route::group(['prefix' => 'wo', 'middleware' => 'auth'], function () {
     Route::post('destroy/{id}', 'WorkoutController@destroy')->name('wo.destroy');
 });
 
+Route::group(['prefix' => 'u', 'middleware' => 'auth'], function () {
+    Route::get('{id}', 'UserController@show')->name('u.show');
+    Route::get('edit/{id}', 'UserController@edit')->name('u.edit');
+    Route::post('update/{id}', 'UserController@update')->name('u.update');
+});
+
 Route::group(['prefix' => 'condition', 'middleware' => 'auth'], function () {
     Route::get('', 'ConditionController@index')->name('condition.index');
     Route::get('create', 'ConditionController@create')->name('condition.create');

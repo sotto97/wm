@@ -3,10 +3,10 @@
 @section('content')
 <div class="bg-current">
     <div class="container">
-        <div class="mt-2">
-            <a href="{{ route('wo.create') }}">
-                <p class="w-1/3 h-8 p-1 mx-auto text-white text-center bg-green-500 hover:no-underline">
-                    Add Today's workout
+        <div class="my-4 w-1/3 mx-auto">
+            <a href="{{ route('wo.create') }}" class="hover:no-underline">
+                <p class="transition duration-500 rounded-full py-2 px-4 mx-auto text-white text-center bg-green-500 hover:bg-green-700">
+                    Add Today's Condition
                 </p>
             </a>
         </div>
