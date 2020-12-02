@@ -11,21 +11,27 @@
             </a>
         </div>
 
-        <table class="workouts_all text-white">
-            <tr>
-                <th>部位</th>
-                <th>日程</th>
-            </tr>
-            @foreach ($workouts as $wo)
-            <tr>
-                <td>{{ $wo->work_type }}</td>
-                <td>
-                    <a href="{{ route('wo.show', ['id' => $wo->id]) }}" method="get">
-                        {{ $wo->date }}
-                    </a>
-                </td>
-            </tr>
-            @endforeach
+        <table class="table table-hover table-dark text-white">
+            <thead class="text-center">
+                <tr>
+                    <th>日程</th>
+                    <th>部位</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+                @foreach ($workouts as $wo)
+                <tr>
+                    <td>{{ $wo->date }}</td>
+                    <td>{{ $wo->work_type }}</td>
+                    <td>
+                        <a href="{{ route('wo.show', ['id' => $wo->id]) }}">
+                            <p class="transition duration-500 w-full mx-auto p-1 text-white text-center border hover:bg-green-500 rounded-full">詳細</p>
+                        </a>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
         </table>
     </div>
 </div>
