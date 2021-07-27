@@ -5,7 +5,9 @@
     <div class="p-4">
         <form @submit.prevent="addNewMenu">
             @csrf
+            <div class="input-group mb-3">
             <input v-model="work_type" type="text" name="work_type">
+            </div>
             <input v-model="date" type="date" name="date">
             <v-select :options="options" v-model="name" class="bg-white"></v-select>
             <input type="submit" value="登録する"></input>
