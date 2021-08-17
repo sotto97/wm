@@ -1,12 +1,14 @@
-@extends('layouts.app')
-
-@section('content')
+@extends('layouts.app') @section('content')
 <div class="bg-current">
     <div class="container">
         <div class="my-4 w-1/3 mx-auto">
             <a href="{{ route('wo.create') }}" class="hover:no-underline">
                 <p class="transition duration-500 rounded-full py-2 px-4 mx-auto text-white text-center bg-green-500 hover:bg-green-700">
                     Add Today's Condition
+                </p>
+
+                <p class="bg-teal-500 my-2 p-2 rounded-full text-white text-center">
+                    今日のコンディションの入力
                 </p>
             </a>
         </div>
@@ -26,11 +28,13 @@
                     <td>{{ $wo->work_type }}</td>
                     <td>
                         <a href="{{ route('wo.show', ['id' => $wo->id]) }}">
-                            <p class="transition duration-500 w-full mx-auto p-1 text-white text-center border hover:bg-green-500 rounded-full">詳細</p>
+                            <p class="transition duration-500 w-full mx-auto p-1 text-white text-center border hover:bg-green-500 rounded-full">
+                                詳細
+                            </p>
                         </a>
                     </td>
                 </tr>
-                @endforeach
+                @endforeach2
             </tbody>
         </table>
     </div>
@@ -39,12 +43,9 @@
 <script>
     var app = new Vue({
         el: "#app",
-        data: {
-
-        },
-        methods: {
-
-        }
+        data: {},
+        methods: {}
     });
+
 </script>
 @endsection
