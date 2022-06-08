@@ -1,14 +1,12 @@
-@extends('layouts.app') @section('content')
+@extends('layouts.app')
+
+@section('content')
 <div class="bg-current">
     <div class="container">
         <div class="my-4 w-1/3 mx-auto">
             <a href="{{ route('wo.create') }}" class="hover:no-underline">
                 <p class="transition duration-500 rounded-full py-2 px-4 mx-auto text-white text-center bg-green-500 hover:bg-green-700">
                     Add Today's Condition
-                </p>
-
-                <p class="bg-teal-500 my-2 p-2 rounded-full text-white text-center">
-                    今日のコンディションの入力
                 </p>
             </a>
         </div>
@@ -34,7 +32,7 @@
                         </a>
                     </td>
                 </tr>
-                @endforeach2
+                @endforeach
             </tbody>
         </table>
     </div>
